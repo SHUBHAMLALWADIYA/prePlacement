@@ -1,10 +1,14 @@
-
 const express=require("express")
+const { allTeachersDetails, allStudentsDetails } = require("../controller/admin.controller")
 
-const studentRouter=express.Router()
+const adminRouter=express.Router()
 
-studentRouter.post("/register",)
-studentRouter.post("/login",)
-studentRouter.post("/logout",)
+adminRouter.get("/all-teachers-detail",allTeachersDetails)
+adminRouter.get("/all-student-detail",allStudentsDetails)
+adminRouter.get("/teacher-detail/:teacherName",)
+adminRouter.get("/specific-teacher-detail/:teacherName/student",)
+adminRouter.get("/standard-student-detail/:standard",)
+adminRouter.get("/standard-student-detail/:standard/:classgroup",)
 
-module.exports=studentRouter 
+
+module.exports=adminRouter

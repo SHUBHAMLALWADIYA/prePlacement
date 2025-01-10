@@ -7,6 +7,6 @@ const logoutSchema=mongoose.Schema(
     {versionKey:false}
 )
 
-const StudentLogoutModel=mongoose.model("logOut",logoutSchema)
+const UserLogoutModel=mongoose.model("logOut",logoutSchema)
 
-module.exports=StudentLogoutModel
+module.exports=UserLogoutModel
