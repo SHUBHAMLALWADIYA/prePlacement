@@ -1,6 +1,6 @@
 const express=require("express")
 const dotenv=require("dotenv")
-const connection=require("./src/db")
+const connection=require("./db")
 const cors=require("cors")
 const cookieParser = require("cookie-parser")
 
