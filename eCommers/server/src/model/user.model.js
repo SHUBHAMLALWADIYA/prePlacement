@@ -18,7 +18,7 @@ const userSchema = mongoose.Schema(
       message: "{VALUE} is not a valid of Gender",
     },
     mobile: {
-      type: String,
+      type: Number,
       required: true,
       validate: {
         validator: function (v) {
@@ -28,7 +28,7 @@ const userSchema = mongoose.Schema(
       },
     },
     aadhar: {
-      type: String,
+      type: Number,
       required: function () {
         return this.role === "Teacher" || this.role === "Student"; 
       },
@@ -43,18 +43,18 @@ const userSchema = mongoose.Schema(
       type: String,
       required: function () {
         return this.role === "Teacher" || this.role === "Student";
-      },
+      },unique:true
     },
     GR: {
-      type: String,
+      type: Number,
       required: function () {
         return this.role === "Student";
-      },
+      },unique:true
     },
     bloodgroup: {
       type: String,
       required: true,
-      enum: ["+A", "+B", "-A", "-B", "+AB", "-AB", "+O", "-O"],
+      enum: ["A+", "B+","B-", "A-", "B+", "AB+", "AB-", "O+", "O-"],
       message: "{VALUE} is not a valid blood group",
     },
     cast: {
@@ -66,11 +66,11 @@ const userSchema = mongoose.Schema(
       message: "{VALUE} is not a valid caste",
     },
     standard: {
-      type: String,
+      type: Number,
       required: function () {
         return this.role === "Student";
       },
-      enum: ["0", "1A", "2A", "3A", "4A", "5A", "6A", "7A", "8A","1B", "2B", "3B", "4B", "5B", "6B", "7B", "8B"],
+      enum: [0,1,2,3,4,5,6,7,8],
       message: "{VALUE} is not a valid standard",
     },
     classGroup: {
@@ -78,7 +78,7 @@ const userSchema = mongoose.Schema(
       required: function () {
         return this.role === "Student";
       },
-      enum: ["A", "B"],
+      enum: ["0","1A", "2A", "3A", "4A", "5A", "6A", "7A", "8A","1B", "2B", "3B", "4B", "5B", "6B", "7B", "8B"],
       message: "{VALUE} is not a valid class",
     },
     religion: {
@@ -125,7 +125,7 @@ const userSchema = mongoose.Schema(
       },
     },
     rollNumber: {
-      type: String,
+      type: Number,
       required: function () {
         return this.role === "Student";
       },
@@ -139,12 +139,12 @@ const userSchema = mongoose.Schema(
       message: "{VALUE} is not a valid standard",
     },
     teacherCode: {
-      type: String,
+      type:  Number,
       required: function () {
         return this.role === "Teacher";
-      },
+      },unique:true
     },
-    password: { type: String, required: true },
+    password: { type: String, required: true }
   },
   { versionKey: false }
 );

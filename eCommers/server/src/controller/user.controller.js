@@ -58,9 +58,11 @@ bcrypt.hash(password, 10, async (err, hash) => {
 const loginUser=async(req,res)=>{
 
 const {aadhar,password}=req.body
-console.log(aadhar.length)
+
+let aadharNum=""+aadhar
+
     try {
-      if(aadhar.length!=12){
+      if(aadharNum.length!=12){
 return res.status(200).send({msg:"In your aadhar card number some digits are missing"})
       }
         const findUser=await UserModel.findOne({aadhar})
