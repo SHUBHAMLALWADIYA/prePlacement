@@ -36,6 +36,23 @@
 // console.log(abc(10,10))
 
 
-const arr=[1,2,3,4,5,6,7,8,9]
-const newArray=arr.find((num,index)=>num==4)
-console.log(newArray)
+// const arr=[1,2,3,4,5,6,7,8,9]
+// const newArray=arr.find((num,index)=>num==4)
+// console.log(newArray)
+
+const obj = {
+    name: "Arrow",
+    arrowFunc: () =>{
+        console.log("this",this.name)     
+    } ,
+  };
+  obj.arrowFunc(); // Output: global object (or undefined in strict mode)
+  
+// const ages = [18, 20, 15, 21, 17];
+// const adults = ages.filter((a) => a>20);
+
+// console.log(adults); // Output: [18, 20, 21]
+
+// const numbers=[1,2,3,4,5]
+// const sum=numbers.reduce((acc,num)=>acc+num,0)
+// console.log(sum)
